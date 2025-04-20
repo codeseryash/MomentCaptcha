@@ -1,0 +1,41 @@
+<div class="image-slider" *ngIf="images.length">
+    <button class="nav-btn  nav-left" (click)="prevImage()">&#8592;</button>
+
+    <div class="image-preview-container">
+      <img
+        [src]="images[currentIndex] ? (images[currentIndex] | fileToUrl) : ''"
+        alt="Image preview"
+        class="slider-img zoomable-img"
+      >
+      <div>
+        <div class="info-bar">
+            <label class="current-photo">Current Photo: {{ currentIndex + 1 }} / {{ images.length }}</label>
+            
+            <button class="select-btn" (click)="toggleSelect(images[currentIndex])">
+            {{ isSelected(images[currentIndex]) ? 'Unselect' : 'Select' }}
+            </button>
+            
+            <button class="select-btn" [disabled]="selectedImages.length === 0" (click)="finishSelection()">Finish {{selectedImages.length}}</button>
+        </div>
+      </div>
+
+
+      <!-- Thumbnail navigation
+      <cdk-virtual-scroll-viewport itemSize="70" class="thumbnail-viewport">
+        <img
+          *cdkVirtualFor="let img of images; let i = index"
+          [src]="img | fileToUrl"
+          loading="lazy"
+          [class.active-thumb]="i === currentIndex"
+          (click)="currentIndex = i"
+          class="thumb-img"
+        >
+      </cdk-virtual-scroll-viewport> -->
+    </div>
+
+    <button class="nav-btn  nav-right" (click)="nextImage()">&#8594;</button>
+  </div>
+
+  
+  
+  

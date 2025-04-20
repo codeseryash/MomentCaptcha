@@ -1,0 +1,40 @@
+<ul class="list-group" *ngIf="fileTree">
+    <ng-container *ngFor="let item of fileTree">
+        <ng-container *ngTemplateOutlet="renderTree; context: { $implicit: item }"></ng-container>
+    </ng-container>
+  </ul>
+  
+  <!-- <ng-template #renderTree let-item>
+    <li class="list-group-item" >
+        📁 <strong>{{ item.name }}</strong>
+      <ul class="ms-3 list-group mt-2" *ngIf="item.filesAndFolder?.length">
+        <li *ngFor="let child of item.filesAndFolder" class="list-group-item">
+          <ng-container *ngIf="child.type === 'folder'; else fileBlock">
+            <ng-container *ngTemplateOutlet="renderTree; context: { item: child }"></ng-container>
+          </ng-container>
+          <ng-template #fileBlock>
+            📄 {{ child.name }}
+            <span *ngIf="child.isImage" class="text-success">(image)</span>
+          </ng-template>
+        </li>
+      </ul>
+    </li>
+  </ng-template> -->
+  <ng-template #renderTree let-item>
+    <li class="list-group-item">
+      <!-- <div  class="d-flex align-items-center cursor-pointer"> -->
+    <div (click)="item.expanded = !item.expanded" class="d-flex align-items-center cursor-pointer">
+        <span *ngIf="item.type === 'folder'">
+          <strong>{{ item.expanded ? '📂' : '📁' }} {{ item.name }}</strong>
+        </span>
+        <span *ngIf="item.type !== 'folder'">
+          📄 {{ item.name }} <span *ngIf="item.isImage" class="text-success">(image)</span>
+        </span>
+      </div>
+      <ul class="list-group ms-4 mt-2" *ngIf="item.filesAndFolder && item.filesAndFolder?.length > 0 && item.expanded" >
+        <li *ngFor="let child of item.filesAndFolder" class="list-group-item">
+          <ng-container *ngTemplateOutlet="renderTree; context: { $implicit: child }"></ng-container>
+        </li>
+      </ul>
+    </li>
+  </ng-template>
