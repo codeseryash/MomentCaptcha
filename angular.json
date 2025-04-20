@@ -7,6 +7,27 @@
       "sourceRoot": "src",
       "architect": {
         "build": {
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "styles": [
+                "src/styles.css"
+              ],
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          },
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/momentCaptcha",
@@ -31,13 +52,13 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "drive-folder-accessor:build"
+            "browserTarget": "momentCaptcha:build"
           }
         }
       }
     }
   },
-  "defaultProject": "drive-folder-accessor",
+  "defaultProject": "momentCaptcha",
   "cli": {
     "analytics": false
   }
