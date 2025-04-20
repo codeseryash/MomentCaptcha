@@ -1,0 +1,11 @@
+<div style="padding: 20px; max-width: 500px; margin: auto;" *nfIf="false">
+    <h2>Google Drive Folder Access</h2>
+    <input type="text" [(ngModel)]="folderId" placeholder="Enter Folder ID" class="form-control" />
+    <button (click)="fetchFiles()">Go</button>
+  
+    <div *ngIf="error" style="color: red; margin-top: 10px;">{{ error }}</div>
+  
+    <ul *ngIf="files.length">
+      <li *ngFor="let file of files">📄 {{ file.name }} (ID: {{ file.id }})</li>
+    </ul>
+  </div>

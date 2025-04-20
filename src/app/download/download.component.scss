@@ -1,0 +1,42 @@
+.download-step {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: white;
+  }
+  
+  .download-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+  
+  .download-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .download-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+  }
+  
+  .thumb-img-small {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .file-name {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    word-break: break-word;
+    text-align: center;
+  }
+  

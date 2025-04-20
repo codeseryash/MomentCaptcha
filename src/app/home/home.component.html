@@ -1,0 +1,57 @@
+<mat-horizontal-stepper [linear]="true" class="container" #stepper>
+    <mat-step label="Step 1: Upload your folder">
+    <div class="drag-drop-area py-5 mt-4 mb-4" (drop)="onDrop($event, stepper)" (dragover)="onDragOver($event)" (click)="triggerFolderInput()">
+        <div class="text-center">
+            <div class="mt-4 mb-4" *ngIf="!selectedFiles || selectedFiles.length == 0">
+                <p>Drag and drop a folder here</p>
+                <p>or</p>
+                <label for="folderInput" class="btn btn-primary">
+                    <span *ngIf="!loading">Choose folder</span>
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                    <span *ngIf="loading">Uploading...</span>
+                </label>
+                <input type="file" id="folderInput" class="d-none" webkitdirectory directory (change)="onFolderSelected($event, stepper)">
+            </div>
+            <div class="mt-4 mb-4" *ngIf="selectedFiles?.length > 0">
+                <p>Drag and drop a folder here to owerwrite everything</p>
+                <p>or</p>
+                <label for="folderInput" class="btn btn-primary">
+                    <span *ngIf="!loading">Choose another folder</span>
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                    <span *ngIf="loading">Uploading...</span>
+                </label>
+                <input type="file" id="folderInput" class="d-none" webkitdirectory directory (change)="onFolderSelected($event, stepper)">
+            </div>
+            
+        </div>
+    </div>
+</mat-step>
+<mat-step label="Step 2: Choose your favourites">
+    <div *ngIf="selectedFiles.length === 0 ">
+        <p>Please upload folder first or try to upload a different folder</p>
+    </div>
+    
+    <div *ngIf="selectedFiles?.length > 0">
+        <mat-tab-group  [(selectedIndex)]="tabIndex" (selectedIndexChange)="onTabChange($event)">
+            <mat-tab label="All Files">
+              <app-file-tree [files]="selectedFiles"></app-file-tree>
+            </mat-tab>
+            <mat-tab label="Images  ({{ imageCount }})">
+                <app-image-preview 
+                    [files]="selectedFiles"
+                    [stepper] = "stepper" 
+                    (imageCountChange)="imageCount = $event" 
+                    (shortlisted)="shortlisted = $event"
+                    >
+                </app-image-preview>
+            </mat-tab>
+        </mat-tab-group>
+      </div>
+      
+    
+</mat-step>
+<mat-step label="Step 3: Download">
+    <app-download [DownloadableFiles]="shortlisted" ></app-download>
+</mat-step>
+
+</mat-horizontal-stepper>

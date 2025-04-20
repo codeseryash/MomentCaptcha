@@ -1,0 +1,20 @@
+<div class="download-step">
+    <h2 class="download-title">Ready to Download</h2>
+
+    <div *ngIf="DownloadableFiles.length > 0; else noFiles">
+      <div class="download-list">
+        <div *ngFor="let img of DownloadableFiles" class="download-item">
+          <img [src]="img | fileToUrl" alt="{{ img.name }}" class="thumb-img-small">
+          <span class="file-name">{{ img.name }}</span>
+        </div>
+      </div>
+
+      <button class="select-btn" (click)="downloadSelected()">
+        Download {{ DownloadableFiles.length }} File{{ DownloadableFiles.length > 1 ? 's' : '' }}
+      </button>
+    </div>
+
+    <ng-template #noFiles>
+      <p>No files selected for download. Please go back and choose some images.</p>
+    </ng-template>
+  </div>
