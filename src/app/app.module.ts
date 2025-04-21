@@ -20,11 +20,19 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { FileToUrlPipe } from './pipes/file-to-url.pipe';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { DownloadComponent } from './download/download.component';
+import { AboutComponent } from './about/about.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon'; // For icons
+import { MatToolbarModule } from '@angular/material/toolbar'; // For toolbar
+import {MatSidenavModule} from '@angular/material/sidenav';
+
+
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, DriveFormComponent, FileTreeComponent, HomeComponent, FooterComponent, ImagePreviewComponent, FileToUrlPipe, DownloadComponent],
+  declarations: [AppComponent, NavbarComponent, DriveFormComponent, FileTreeComponent, HomeComponent, FooterComponent, ImagePreviewComponent, FileToUrlPipe, DownloadComponent, AboutComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule, MatButtonModule, MatStepperModule, BrowserAnimationsModule, MatTabsModule
-    , ScrollingModule
+    , ScrollingModule, MatDividerModule, MatCardModule, MatIconModule, MatToolbarModule, MatSidenavModule 
   ],
   providers: [FolderAccessService, FileDataService, DownloadService ],
   bootstrap: [AppComponent]
