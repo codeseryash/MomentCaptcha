@@ -19,13 +19,16 @@
               "outputHashing": "all",
               "sourceMap": false,
               "styles": [
-                "src/styles.css"
+                "src/styles.css",
+                "src/styles.scss",
+                "@angular/material/prebuilt-themes/pink-bluegrey.css"
               ],
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true
+              "buildOptimizer": true,
+              "baseHref": "/MomentCaptcha/"
             }
           },
           "builder": "@angular-devkit/build-angular:browser",
