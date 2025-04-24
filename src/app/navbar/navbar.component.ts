@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css','./navbar.component.scss']
 })
 export class NavbarComponent {
+   toolbar: number =1
 
 }

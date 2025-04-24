@@ -9,12 +9,54 @@
   <app-footer></app-footer>
 </mat-sidenav-container>
  -->
-
-<app-navbar></app-navbar>
+ <mat-toolbar color="primary">
+  <button mat-icon-button (click)="toggleDrawer()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Moment Captcha</span>
+</mat-toolbar>
+<mat-drawer-container class="example-container">
+  <!-- <mat-drawer mode="side" [opened]="isSideOpen">
+    <span class="example-spacer"></span>
+    <div>
+      <button mat-icon-button class="example-icon home-icon" aria-label="Example icon-button with home icon" routerLink="/">
+        <mat-icon>home</mat-icon> <span class="example-spacer">Test</span> Home
+      </button>
+    </div>
+    <div>
+      <button mat-icon-button class="example-icon home-icon" aria-label="Example icon-button with group icon" routerLink="/">
+        <mat-icon>group</mat-icon>About
+      </button>
+    </div>
+    <p><a mat-button routerLink="/">Home</a></p>
+    <p><a mat-button routerLink="/about">About</a></p>
+  </mat-drawer> -->
+  <mat-drawer mode="side" opened class="drawer-content">
+    <mat-list role="list">
+      <mat-list-item mat-icon-button role="listitem" routerLink="/">
+        <span *ngIf="isSideOpen" class="side-items-text">Home</span>
+        <mat-icon>home</mat-icon>
+      </mat-list-item>
+      <mat-list-item mat-icon-button role="listitem" routerLink="/about"> 
+        <span *ngIf="isSideOpen" class="side-items-text">About</span>
+        <mat-icon>group</mat-icon>
+      </mat-list-item>
+    </mat-list>
+  </mat-drawer>
+  
+  <mat-drawer-content>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+    <app-footer color="primary"></app-footer>
+  </mat-drawer-content>
+</mat-drawer-container>
+<!-- <app-navbar></app-navbar>
 
 <main>
   <router-outlet></router-outlet>
 </main>
 
-<app-footer></app-footer>
+ -->
+
 

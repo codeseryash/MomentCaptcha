@@ -26,13 +26,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon'; // For icons
 import { MatToolbarModule } from '@angular/material/toolbar'; // For toolbar
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
 
 
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, DriveFormComponent, FileTreeComponent, HomeComponent, FooterComponent, ImagePreviewComponent, FileToUrlPipe, DownloadComponent, AboutComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule, MatButtonModule, MatStepperModule, BrowserAnimationsModule, MatTabsModule
-    , ScrollingModule, MatDividerModule, MatCardModule, MatIconModule, MatToolbarModule, MatSidenavModule 
+    , ScrollingModule, MatDividerModule, MatCardModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatListModule
   ],
   providers: [FolderAccessService, FileDataService, DownloadService ],
   bootstrap: [AppComponent]

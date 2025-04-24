@@ -1,3 +1,14 @@
 .about-container{
     color: white;
 }
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  app-about {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }

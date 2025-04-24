@@ -24,3 +24,54 @@
   main {
     flex: 1 0 auto;
   }
+
+  .example-container {
+    width: auto;
+    height: 200px;
+    margin: 10px;
+    border: 1px solid #555;
+    /* The background property is added to clearly distinguish the borders between drawer and main
+       content */
+    background: #eee;
+  }
+  
+
+  .drawer-content {
+    padding: 20px;
+  }
+  
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #333;
+    text-decoration: none;
+    font-size: 50px;
+  
+    &:hover {
+      background-color: #f0f0f0;
+    }
+  
+    mat-icon {
+      font-size: 60px;
+    }
+  }
+
+  .side-items-text{
+    margin: 10px;
+    vertical-align: super;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  mat-drawer-content{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }

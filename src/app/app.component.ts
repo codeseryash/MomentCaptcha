@@ -7,5 +7,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
   styleUrls: ['../styles.scss']
 })
 export class AppComponent {
-  
+  isSideOpen:boolean = true;
+  toggleDrawer():void {
+    this.isSideOpen = !this.isSideOpen;
+  }
 }
